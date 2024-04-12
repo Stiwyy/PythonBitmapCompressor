@@ -1,4 +1,6 @@
 from PIL import Image
+
+#Compresses the bits in the Bitmap using RLE Method thing
 def compressor(bitmap):
     compressedBitmap = []
     currentPixel = bitmap[0]
@@ -16,17 +18,19 @@ def compressor(bitmap):
     
     return compressedBitmap
 
-def binaerumwandlung(zahl):
+#Converts the Compressed integers to binary
+def binaryconverter(zahl):
     return bin(zahl)[2:]
 
+#Reads the Bitmap file and prints out the compressed Bitmap in decimal form, 
+#binary form and the lenght of the compressed thing
 def main():
-    file_path = "TestBitmap1.bmp"
-    with Image.open(file_path) as img:        
+    with Image.open("TestBitmap1.bmp") as img:        
         bitmap = list(img.getdata())
         compressedBitmap = compressor(bitmap)
         print("Komprimiertes Bitmap:", compressedBitmap)
-        binary_compressedBitmap = [binaerumwandlung(zahl) for zahl in compressedBitmap]
-        print("Komprimierte Daten (RLE) als Binärzahlen:", binary_compressedBitmap)
+        binary_compressedBitmap = [binaryconverter(zahl) for zahl in compressedBitmap]
+        print("Binärzahl davon:", binary_compressedBitmap)
         print("Anzahl der komprimierten Binärzahlen:", len(binary_compressedBitmap))
 
 main()
