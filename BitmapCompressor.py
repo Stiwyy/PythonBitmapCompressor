@@ -25,7 +25,7 @@ def binaryconverter(zahl):
 #Reads the Bitmap file and prints out the compressed Bitmap in decimal form, 
 #binary form and the lenght of the compressed thing
 def main():
-    with Image.open("TestBitmap1.bmp") as img:        
+    with Image.open("TestBitmap.bmp") as img:        
         bitmap = list(img.getdata())
         compressedBitmap = compressor(bitmap)
         print("Komprimiertes Bitmap:", compressedBitmap)
