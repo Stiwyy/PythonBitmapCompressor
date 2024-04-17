@@ -33,4 +33,6 @@ def main():
         print("Binärzahl davon:", binary_compressedBitmap)
         print("Anzahl der komprimierten Binärzahlen:", len(binary_compressedBitmap))
 
+
+
 main()
